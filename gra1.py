@@ -5,7 +5,7 @@ clock = pygame.time.Clock()
 pygame.init()
 running = True
 screen = pygame.display.set_mode((1640, 640))
-pygame.display.set_caption("Space invaders")
+
 
 player = pygame.Rect((800, 320, 40, 40))
 
