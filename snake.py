@@ -51,7 +51,6 @@ def draw_game_over():
 while running:
 
     # clock.tick(144)
-
     draw_screen()
     draw_score()
 
@@ -134,7 +133,6 @@ while running:
 
     pygame.display.update()
     update_snake += 1
-
 
 
 
