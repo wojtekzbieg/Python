@@ -58,22 +58,18 @@ while running:
     if game_over is False:
         if update_snake > 90:
             update_snake = 0
-            # first shift the positions of each snake piece back.
+
             snake_pos = snake_pos[-1:] + snake_pos[:-1]
-            # now update the position of the head based on direction
-            # heading up
+
             if direction == 1:
                 snake_pos[0][0] = snake_pos[1][0]
                 snake_pos[0][1] = snake_pos[1][1] - cell_size
-            # heading down
             if direction == 3:
                 snake_pos[0][0] = snake_pos[1][0]
                 snake_pos[0][1] = snake_pos[1][1] + cell_size
-            # heading right
             if direction == 2:
                 snake_pos[0][1] = snake_pos[1][1]
                 snake_pos[0][0] = snake_pos[1][0] + cell_size
-            # heading left
             if direction == 4:
                 snake_pos[0][1] = snake_pos[1][1]
                 snake_pos[0][0] = snake_pos[1][0] - cell_size
