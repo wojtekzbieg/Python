@@ -2,7 +2,6 @@ import pygame
 from pygame.locals import *
 import random
 
-clock = pygame.time.Clock()
 
 pygame.init()
 screen_width = 1600
@@ -21,6 +20,8 @@ game_over = False
 over_rect = Rect(screen_width // 2 - 100, screen_height // 2 - 60, 200, 50)
 again_rect = Rect(screen_width // 2 - 100, screen_height // 2, 200, 50)
 clicked = False
+
+clock = pygame.time.Clock()
 
 snake_pos = [[int(screen_width / 2), int(screen_height / 2)]]
 snake_pos.append([snake_pos[0][0], snake_pos[0][1]+cell_size])
@@ -49,7 +50,6 @@ def draw_game_over():
 
 
 while running:
-
 
     draw_screen()
     draw_score()
@@ -127,11 +127,8 @@ while running:
 
     pygame.draw.rect(screen, (0, 255, 0), (food[0], food[1], cell_size, cell_size))
 
-
     pygame.display.update()
     clock.tick(30)
-    # update_snake += 1
-
 
 
 pygame.quit()
