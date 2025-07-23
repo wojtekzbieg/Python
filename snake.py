@@ -19,7 +19,6 @@ score = 0
 font = pygame.font.SysFont(None, 40)
 game_over = False
 
-
 snake_pos = [[int(screen_width / 2), int(screen_height / 2)]]
 snake_pos.append([snake_pos[0][0], snake_pos[0][1]+cell_size])
 snake_pos.append([snake_pos[0][0], snake_pos[0][1]+cell_size*2])
@@ -33,6 +32,7 @@ def draw_score():
     score_txt = "Score: " + str(score)
     score_img = font.render(score_txt, True, (0, 0, 255), )
     screen.blit(score_img, (10, 10))
+
 
 while running:
 
