@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 import random
 
-# clock = pygame.time.Clock()
+clock = pygame.time.Clock()
 
 pygame.init()
 screen_width = 1600
@@ -18,8 +18,8 @@ new_food = True
 score = 0
 font = pygame.font.SysFont(None, 40)
 game_over = False
-over_rect = Rect(screen_width // 2 - 80, screen_height // 2 - 60, 160, 50)
-again_rect = Rect(screen_width // 2 - 80, screen_height // 2, 160, 50)
+over_rect = Rect(screen_width // 2 - 100, screen_height // 2 - 60, 200, 50)
+again_rect = Rect(screen_width // 2 - 100, screen_height // 2, 200, 50)
 clicked = False
 
 snake_pos = [[int(screen_width / 2), int(screen_height / 2)]]
@@ -50,7 +50,7 @@ def draw_game_over():
 
 while running:
 
-    # clock.tick(144)
+
     draw_screen()
     draw_score()
 
@@ -69,23 +69,20 @@ while running:
             running = False
 
     if game_over is False:
-        if update_snake > 90:
-            update_snake = 0
+        snake_pos = snake_pos[-1:] + snake_pos[:-1]
 
-            snake_pos = snake_pos[-1:] + snake_pos[:-1]
-
-            if direction == 1:
-                snake_pos[0][0] = snake_pos[1][0]
-                snake_pos[0][1] = snake_pos[1][1] - cell_size
-            if direction == 3:
-                snake_pos[0][0] = snake_pos[1][0]
-                snake_pos[0][1] = snake_pos[1][1] + cell_size
-            if direction == 2:
-                snake_pos[0][1] = snake_pos[1][1]
-                snake_pos[0][0] = snake_pos[1][0] + cell_size
-            if direction == 4:
-                snake_pos[0][1] = snake_pos[1][1]
-                snake_pos[0][0] = snake_pos[1][0] - cell_size
+        if direction == 1:
+            snake_pos[0][0] = snake_pos[1][0]
+            snake_pos[0][1] = snake_pos[1][1] - cell_size
+        if direction == 3:
+            snake_pos[0][0] = snake_pos[1][0]
+            snake_pos[0][1] = snake_pos[1][1] + cell_size
+        if direction == 2:
+            snake_pos[0][1] = snake_pos[1][1]
+            snake_pos[0][0] = snake_pos[1][0] + cell_size
+        if direction == 4:
+            snake_pos[0][1] = snake_pos[1][1]
+            snake_pos[0][0] = snake_pos[1][0] - cell_size
 
     if new_food is True:
         food = [random.randint(1, int(screen_width/10-1))*10, random.randint(1, int(screen_height/10-1))*10]
@@ -132,7 +129,8 @@ while running:
 
 
     pygame.display.update()
-    update_snake += 1
+    clock.tick(30)
+    # update_snake += 1
 
 
 
