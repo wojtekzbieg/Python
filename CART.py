@@ -88,7 +88,10 @@ def ocena_transakcji():
     godzina = int(input("Godzina transakcji (0-24): "))
     metoda = int(input("Metoda płatności (0-1): "))         #0 - platnosc karta kredytowa, 1 - przelew
     wynik = przewiduj(drzewo, [kwota, lokalizacja, godzina, metoda])
-    print("Podejrzana transakcja." if wynik == 1 else "Autoryzowana transakcja.")
+    if wynik == 1:
+        print("Podejrzana transakcja.")
+    else:
+        print("Autoryzowana transakcja.")
 
 ocena_transakcji()
 
